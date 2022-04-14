@@ -1,4 +1,4 @@
-package io.tedcadet.demos.kafka;
+package io.tedcadet.demos.kafka.producers;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
