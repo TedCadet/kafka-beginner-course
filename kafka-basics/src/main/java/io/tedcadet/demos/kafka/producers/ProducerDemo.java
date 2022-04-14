@@ -11,29 +11,32 @@ import java.util.Properties;
 
 public class ProducerDemo {
 
-    private static final Logger log = LoggerFactory.getLogger(ProducerDemo.class.getSimpleName());
+  private static final Logger log = LoggerFactory.getLogger(ProducerDemo.class.getSimpleName());
 
-    public static void main(String[] args) {
-        log.info("Hello world!");
-        // create Producer Properties
-        Properties properties = new Properties();
-        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
-        properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+  public static void main(String[] args) {
+    log.info("Hello world!");
+    // create Producer Properties
+    Properties properties = new Properties();
+    properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
+    properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
+        StringSerializer.class.getName());
+    properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
+        StringSerializer.class.getName());
 
-        // create the producer
-        KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
+    // create the producer
+    KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
-        // create a producer record
-        ProducerRecord<String, String> producerRecord = new ProducerRecord<>("demo_java", "hello world");
+    // create a producer record
+    ProducerRecord<String, String> producerRecord = new ProducerRecord<>("demo_java",
+        "hello world");
 
-        // send data - asynchronous
-        producer.send(producerRecord);
+    // send data - asynchronous
+    producer.send(producerRecord);
 
-        // flush data
-        producer.flush();
+    // flush data
+    producer.flush();
 
-        // close producer
-        producer.close();
-    }
+    // close producer
+    producer.close();
+  }
 }
