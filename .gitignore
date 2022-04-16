@@ -9,8 +9,7 @@
 
 /build
 /.gradle
-/.idea
-/out
+*/.idea
+*/out
+*/build
 
-/kafka-basics/build
-/kafka-basics/out
