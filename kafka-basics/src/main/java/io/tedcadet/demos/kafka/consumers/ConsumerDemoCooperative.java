@@ -22,7 +22,7 @@ public class ConsumerDemoCooperative {
     log.info("Kafka consumer");
     String bootstrapServer = "127.0.0.1:9092";
     String groupId = "my-third-application";
-    String topic = "demo_java";
+    String topic = "wikimedia.recentchange";
 
     // consumer configs
     Properties properties = new Properties();
